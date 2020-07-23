@@ -4,5 +4,5 @@ services:
 before_install:
   - docker build -t christoskokolios/docker-react -f Dockerfile.dev .
 scripts: 
-   - docker run christoskokolios/docker-react npm run test -- --coverage CI=true
+   - docker run -e CI=true christoskokolios/docker-react npm run test
 language: generic 
