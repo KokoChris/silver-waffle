@@ -13,8 +13,7 @@ deploy:
   env: Titakokita-env
   bucket_name: elasticbeanstalk-eu-north-1-078549121454
   bucket_path: titakokita
-  deploy:
-    on:
-      branch: master
+  on:
+    branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
