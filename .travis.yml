@@ -3,6 +3,17 @@ services:
   - docker
 before_install:
   - docker build -t christoskokolios/docker-react -f Dockerfile.dev .
-scripts: 
-   - docker run -e CI=true christoskokolios/docker-react npm run test
-language: generic 
+scripts:
+  - docker run -e CI=true christoskokolios/docker-react npm run test
+language: generic
+deploy:
+  provider: elasticbeanstalk
+  region: eu-north-1
+  app: titakokita
+  env: Titakokita-env
+  bucket_name: elasticbeanstalk-eu-north-1-078549121454
+  bucket_path: titakokita
+    on:
+        branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
